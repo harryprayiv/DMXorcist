@@ -3,6 +3,16 @@ DMXorcist Beta
 
 My homepage: http://www.harryprayiv.com/
 
+Reasons for creating this fork
+--------------------
+* I adore Haskell
+* while I love QLC+, my professional needs from it were too numerous
+* no 16-bit Support
+* needs an entirely new GUI
+* I want to learn the functional paradigm by creating something useful
+* QLC5 is 2 years away
+* QLC+ Codebase is clean but inhenerently hard to extend due to C++
+
 DEVELOPER AT WORK
 ------------------
 
