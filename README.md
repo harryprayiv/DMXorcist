@@ -1,4 +1,4 @@
-Q Light Controller Plus 4
+Q Light Controller Plus 4 Fork
 =========================
 
 ![QLC+ LOGO](resources/icons/png/qlcplus.png)
@@ -13,20 +13,7 @@ QLC+ on GitHub: https://github.com/mcallegari/qlcplus
 DEVELOPERS AT WORK
 ------------------
 
-If you're compiling QLC+ from sources and you regularly do "git pull" 
-to get the latest sources, you probably end up seeing some
-compiler warnings and errors from time to time. Since the whole source package
-is under development, you might even encounter unresolved symbols etc. that
-halt the compiler immediately. If such a thing occurs, you should do a "make
-distclean" on qlcplus (top-most source directory) and then "qmake" and "make"
-again. We attempt to keep the GIT master free of fatal errors and it should
-compile all the time. However, some inter-object dependencies do get mixed up
-sometimes and you need to compile the whole package instead of just the latest
-changes. Sometimes even that doesn't work, because QLC+ installs its common
-libraries to system directories, where (at least unixes) fetch them instead
-of the source directory. In those cases, you might try going to the libs
-directory, compile it with "make" and install with "make install" and then
-attempt to re-compile the whole package with "make".
+I decided to fork QLC+ after waiting on a good open source DMX controller to compete with the likes of Hog/ETC
 
 Apache 2.0 License
 ------------------
@@ -104,15 +91,6 @@ Compiling & Installation
 
 Please refer to the online wiki pages: https://github.com/mcallegari/qlcplus/wiki
 
-Support & Bug Reports
----------------------
-
-For discussions, feedbacks, ideas and new fixtures, go to:
-http://www.qlcplus.org/forum/index.php
-
-For developers wiki and code patches, go to:
-https://github.com/mcallegari/qlcplus
-
 Contributors
 ------------
 
@@ -141,14 +119,9 @@ Contributors
 * Nuno Almeida, Carlos Eduardo Porto de Oliveira (Portuguese translation)
 * Santiago Benejam Torres (Catalan translation)
 * Koichiro Saito (Japanese translation)
+* Harry Pray IV (complete rewrite in progress)
 
-### QLC:
+### This QLC Fork:
 
-* Stefan Krumm (Bugfixes, new features)
-* Christian Suehs (Bugfixes, new features)
-* Christopher Staite (Bugfixes)
-* Klaus Weidenbach (Bugfixes, German translation)
-* Lutz Hillebrand (uDMX plugin)
-* Matthew Jaggard (Velleman plugin)
-* Ptit Vachon (French translation)
+* Harry Pray IV (complete rewrite of QLC+)
 
