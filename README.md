@@ -6,7 +6,9 @@ My homepage: http://www.harryprayiv.com/
 DEVELOPER AT WORK
 ------------------
 
-This is a complete rewrite of QLC+ to Haskell (or whatever I end up using, honestly).  I am leaning toward Haskell because I have fallen in love with it lately.  In my research, I am already noticing that not that many packages exist for GUI's in Haskell, so it might have to be a QT5 UI with Haskell bindings.  No problem.   
+This is a complete rewrite of QLC+ to Haskell (or whatever I end up using, honestly).  I am leaning toward Haskell because I have fallen in love with it lately.  In my research, I am already noticing that not that many packages exist for GUI's in Haskell, so it might have to be a QT5 UI with Haskell bindings.  No problem.  
+
+Disclaimer: I have a tendency to walk away from a project and come back a year later (or never).  That's a huge problem for my resume but I am not really trying to build a resume.  I would like some collaborators on this if anyone wants it to have ANY chance in hell of being good or even remotely finished to some degree.     
 
 Apache 2.0 License
 ------------------
