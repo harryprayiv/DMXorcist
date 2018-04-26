@@ -1,32 +1,12 @@
-Q Light Controller Plus 4
+DMXorcist Beta
 =========================
 
-![QLC+ LOGO](resources/icons/png/qlcplus.png)
+My homepage: http://www.harryprayiv.com/
 
-Copyright (c) Heikki Junnila
-	      Massimo Callegari
-
-QLC+ homepage: http://www.qlcplus.org/
-
-QLC+ on GitHub: https://github.com/mcallegari/qlcplus
-
-DEVELOPERS AT WORK
+DEVELOPER AT WORK
 ------------------
 
-If you're compiling QLC+ from sources and you regularly do "git pull" 
-to get the latest sources, you probably end up seeing some
-compiler warnings and errors from time to time. Since the whole source package
-is under development, you might even encounter unresolved symbols etc. that
-halt the compiler immediately. If such a thing occurs, you should do a "make
-distclean" on qlcplus (top-most source directory) and then "qmake" and "make"
-again. We attempt to keep the GIT master free of fatal errors and it should
-compile all the time. However, some inter-object dependencies do get mixed up
-sometimes and you need to compile the whole package instead of just the latest
-changes. Sometimes even that doesn't work, because QLC+ installs its common
-libraries to system directories, where (at least unixes) fetch them instead
-of the source directory. In those cases, you might try going to the libs
-directory, compile it with "make" and install with "make install" and then
-attempt to re-compile the whole package with "make".
+This is a complete rewrite of QLC+ to Haskell (or whatever I end up using, honestly).  I am leaning toward Haskell because I have fallen in love with it lately.  In my research, I am already noticing that not that many packages exist for GUI's in Haskell, so it might have to be a QT5 UI with Haskell bindings.  No problem.   
 
 Apache 2.0 License
 ------------------
@@ -43,78 +23,17 @@ limitations under the License.
 
 Requirements - Linux
 --------------------
+* GHC
+* stack
+* cabal
 
-* Qt >= 4.6 development libraries & tools
-* libudev-dev, libmad0-dev, libsndfile1-dev, libfftw3-dev
-
-* DMX USB plugin: libftdi-dev, pkg-config
-* HID plugin: No additional requirements
-* MIDI plugin: libasound, libasound-dev, pkg-config
-* ENTTEC Wing plugin: No additional requirements
-* OLA plugin: libola, ola-dev, pkg-config (see libs/olaout/README)
-* uDMX plugin: libusb, libusb-dev, pkg-config
-* Peperoni plugin: libusb, libusb-dev, pkg-config
-* Velleman plugin: Not available for Linux
-* OSC plugin: No additional requirements
-* ArtNet plugin: No additional requirements
-* E1.31 plugin: No additional requirements
-* Loopback plugin: No additional requirements
-
-Requirements - Windows
-----------------------
-
-* MSYS2 environment (https://msys2.github.io/)
-* Qt >= 5.0.x (http://download.qt.io/official_releases/qt/)
-
-* DMX USB plugin: D2XX driver & development package (http://www.ftdichip.com/Drivers/D2XX.htm)
-* HID plugin: No additional requirements
-* MIDI plugin: No additional requirements
-* ENTTEC Wing plugin: D2XX driver & development package (http://www.ftdichip.com/Drivers/D2XX.htm)
-* OLA plugin: Not available
-* uDMX plugin: No additional requirements
-* Peperoni plugin: No additional requirements
-* Velleman plugin: K8062 SDK from www.velleman.eu
-* OSC plugin: No additional requirements
-* ArtNet plugin: No additional requirements
-* E1.31 plugin: No additional requirements
-* Loopback plugin: No additional requirements
-
-Requirements - Mac OS X
------------------------
-
-* XCode (http://developer.apple.com/technologies/tools/xcode.html)
-* Qt SDK >= 5.0.x (http://download.qt.io/official_releases/qt/)
-* macports (https://www.macports.org/)
-
-* DMX USB plugin: macports, libftdi-dev, pkg-config
-* HID plugin: No additional requirements
-* MIDI plugin: No additional requirements
-* ENTTEC Wing plugin: No additional requirements
-* OLA plugin: libola, ola-dev, pkg-config (see libs/olaout/README)
-* uDMX plugin: macports, libusb-compat, pkg-config
-* Peperoni plugin: macports, libusb-compat, pkg-config
-* Velleman plugin: Not available
-* OSC plugin: No additional requirements
-* ArtNet plugin: No additional requirements
-* E1.31 plugin: No additional requirements
-* Loopback plugin: No additional requirements
-
-Compiling & Installation
-------------------------
-
-Please refer to the online wiki pages: https://github.com/mcallegari/qlcplus/wiki
-
-Support & Bug Reports
----------------------
-
-For discussions, feedbacks, ideas and new fixtures, go to:
-http://www.qlcplus.org/forum/index.php
-
-For developers wiki and code patches, go to:
-https://github.com/mcallegari/qlcplus
 
 Contributors
 ------------
+
+### DMXorcist:
+
+* Harry Pray IV (DMXorcist sole developer)
 
 ### QLC+:
 
