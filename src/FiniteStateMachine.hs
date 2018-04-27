@@ -1,11 +1,12 @@
+-- FiniteStateMachine.hs implements both deterministic and non-deterministic finite state machines. It then defines alorithms for converting between the two, and for a few language operations (such as intersection, union, kleene star).
 module FiniteStateMachine where
 
-import Data.HashSet (HashSet)
-import Data.Hashable (Hashable)
-import qualified Data.HashSet as Set
-import Data.Foldable (Foldable, foldl)
-import Prelude hiding (foldl)
-import SetTools
+import           Data.Foldable (Foldable, foldl)
+import           Data.Hashable (Hashable)
+import           Data.HashSet  (HashSet)
+import qualified Data.HashSet  as Set
+import           Prelude       hiding (foldl)
+import           SetTools
 
 --Deterministic
 newtype FSM state alphabet = FSM (HashSet state, HashSet alphabet, state->alphabet->state, state, HashSet state)
@@ -43,22 +44,22 @@ ndfsmToFSM (NDFSM (q, sigma, delta, q0, f)) = FSM (newQ, sigma, newDelta, newq0,
 
 
 fsmToNDFSM :: (Hashable s, Eq s) => FSM s a -> NDFSM s a
-fsmToNDFSM (FSM (q, sigma, delta, q0, f)) = NDFSM (q, sigma, delta', q0, f) where 
+fsmToNDFSM (FSM (q, sigma, delta, q0, f)) = NDFSM (q, sigma, delta', q0, f) where
         delta' state alpha = case alpha of
             (Just a) -> Set.singleton (delta state a)
-            Nothing -> Set.empty
-            
-            
+            Nothing  -> Set.empty
+
+
 applySingleEpsilonTransition::(Hashable s, Eq s) => HashSet s -> (s -> Maybe a -> HashSet s) -> HashSet s
 applySingleEpsilonTransition set trans = set `setBind` (\e -> Set.insert e (flip trans Nothing e))
-{- 
+{-
 Thought (justifying inserting e): Suppose we have an NDFSM m. If we construct m' by adding an epsilon transition that is a self-loop to every state,
     then the language described by m = the language described by m'
 -}
 untilStableEpsilons::(Hashable s, Eq s) => HashSet s -> (s -> Maybe a -> HashSet s) -> HashSet s
 untilStableEpsilons set trans = case takeWhile (uncurry (/=)) (zip transformations (tail transformations)) of
     [] -> set
-    x -> snd . last $ x
+    x  -> snd . last $ x
     where
         transformations = iterate (flip applySingleEpsilonTransition trans) set
 
@@ -74,7 +75,7 @@ concatLang::(Hashable s1, Hashable s2, Eq s1, Eq s2) => NDFSM s1 a -> NDFSM s2 a
 concatLang (NDFSM (q1, sigma1, delta1, q0, f1)) (NDFSM (q2, sigma2, delta2, q0', f2)) = NDFSM (q3, sigma1, delta3, Left q0, Set.map Right f2)
     where
         q3 = Set.map Left q1 `Set.union` Set.map Right q2
-        delta3 (Left s) Nothing = Set.map Left (delta1 s Nothing) `Set.union` (if Set.member s f1 
+        delta3 (Left s) Nothing = Set.map Left (delta1 s Nothing) `Set.union` (if Set.member s f1
                                      then Set.singleton (Right q0') --Add an epsilon transition from every final state to the start of the second machine
                                      else Set.empty)
         delta3 (Left s) a = Set.map Left (delta1 s a)
@@ -82,7 +83,7 @@ concatLang (NDFSM (q1, sigma1, delta1, q0, f1)) (NDFSM (q2, sigma2, delta2, q0',
 
 kleene::(Hashable s, Eq s) => NDFSM s a -> NDFSM (Maybe s) a
 kleene (NDFSM (q, sigma, delta, q0, f)) = NDFSM (Set.insert Nothing (Set.map Just q), sigma, delta', Nothing, Set.insert Nothing (Set.map Just f))
-    where 
+    where
         delta' Nothing Nothing = Set.singleton (Just q0)
         delta' (Just s) Nothing = Set.map Just (delta s Nothing) `Set.union` (if Set.member s f
                                       then Set.singleton Nothing
