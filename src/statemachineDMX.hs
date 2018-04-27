@@ -14,7 +14,7 @@ import           Checkout           (Card (..), CartItem (..), calculatePrice)
 import qualified PaymentProvider
 
 -- a data type to store current DMX state
-data DMXState
+data DMXstate
   = NoItems
   | HasItems (NonEmpty CartItem)
   | NoCard (NonEmpty CartItem)
@@ -26,7 +26,7 @@ data DMXState
   deriving (Show, Eq)
 
 -- will become a send DMX event
-data SendDMXEvent
+data SendDMXevent
   = Select CartItem
   | Checkout
   | SelectCard Card
@@ -34,3 +34,8 @@ data SendDMXEvent
   | PlaceOrder
   | Cancel
   deriving (Show, Eq)
+
+  checkout
+  :: DMXstate
+  -> SendDMXevent
+  -> IO DMXState
