@@ -1,8 +1,8 @@
 module SetTools where
 
-import Data.HashSet (HashSet) --unordered-containers
-import Data.Hashable (Hashable)
-import qualified Data.HashSet as Set
+import           Data.Hashable (Hashable)
+import           Data.HashSet  (HashSet)
+import qualified Data.HashSet  as Set
 
 setBind :: (Hashable s1, Hashable s2, Eq s1, Eq s2) => HashSet s1 -> (s1 -> HashSet s2) -> HashSet s2
 setBind s f = foldl (Set.union) Set.empty $ Set.map f s

@@ -4,6 +4,7 @@ turing machines, with mathematical rigor.
 
 https://github.com/Crazycolorz5/Automata
 
+https://en.wikipedia.org/wiki/Automata_theory
 
 Since I use HashSets to represent the sets of states and symbols, the project is dependent on
 unordered-containers.
@@ -26,5 +27,5 @@ created. If you're interested in turing machines, check out the very simple impl
 Brain**** I created [here](https://github.com/Crazycolorz5/Brainhask).
 
 Finally, the Examples folder contains Examples.hs, which creates examples of each of the kinds of
-machines, and has a main routine that verifies a few correct accept/reject decisions. There are also
+machines, and has a main routine that verifies a few correct accept/reject decisions. There are also`
 images for each machine constructed.
